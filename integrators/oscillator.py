@@ -1,5 +1,6 @@
 import integrators.contact as con
 import integrators.symplectic as sym
+import integrators.lagrange_dalembert as ld
 
 import integrators.common as com
 
@@ -88,3 +89,11 @@ def variational_noncontact(init, tspan, a, h):
     Nonlinearity, Volume 31, Number 8 (2018).
     """
     return com.variational_noncontact(init, tspan, h, a, 0, 0)
+
+def lagrange_dalembert(init, tspan, a, h):
+    """
+    Integrate the damped oscillator with damping factor a
+    using the first order discrete Lagrange-d'Alembert
+    integrator.
+    """
+    return ld.lagrange_dalembert(init, tspan, h, a)
